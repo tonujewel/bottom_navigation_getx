@@ -1,16 +1,4 @@
 # bottom_navigation_getx
 
-A new Flutter application.
+![Simulator Screen Shot - iPhone 12 Pro Max - 2021-02-01 at 17 48 59](https://user-images.githubusercontent.com/23281909/106455172-0d021d80-64b6-11eb-883a-d8fa08a3a68c.png)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
