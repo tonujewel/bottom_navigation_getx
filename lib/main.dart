@@ -1,5 +1,4 @@
 import 'package:bottom_navigation_getx/controller/bottomController.dart';
-import 'package:bottom_navigation_getx/controller/homeController.dart';
 import 'package:bottom_navigation_getx/style/style.dart';
 import 'package:bottom_navigation_getx/view/Home.dart';
 import 'package:bottom_navigation_getx/view/Liked.dart';
@@ -7,9 +6,6 @@ import 'package:bottom_navigation_getx/view/News.dart';
 import 'package:bottom_navigation_getx/view/Search.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-
-
 
 void main() {
   runApp(MyApp());
@@ -31,7 +27,7 @@ class Bottom extends StatelessWidget {
 
     var width = MediaQuery.of(context).size.width;
     final BottomController boController = Get.put(BottomController());
-    final OpenController drawer = Get.put(OpenController());
+ //   final OpenController drawer = Get.put(OpenController());
 
     return new Directionality(
         textDirection: TextDirection.ltr,
@@ -53,14 +49,14 @@ class Bottom extends StatelessWidget {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                child: bottomNav(width,boController,drawer),
+                child: bottomNav(width,boController),
               ),
             ],
           ),
         ));
   }
 
-  bottomNav(width,boController,drawer){
+  bottomNav(width,boController){
     return Container(
         height: 70,
         width: width,
@@ -75,24 +71,20 @@ class Bottom extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            item(0,Icons.home_outlined,width,boController,drawer),
-            item(1,Icons.search,width,boController,drawer),
-            item(2,Icons.favorite_outline,width,boController,drawer),
-            item(3,Icons.fiber_new_sharp,width,boController,drawer)
+            item(0,Icons.home_outlined,width,boController),
+            item(1,Icons.search,width,boController),
+            item(2,Icons.favorite_outline,width,boController),
+            item(3,Icons.fiber_new_sharp,width,boController)
           ],
         ));
   }
 
-  navigateToPage(int input,BottomController boController,OpenController drawer) {
+  navigateToPage(int input,BottomController boController) {
     boController.animateTo(input);
     boController.onPageChanged(input);
-    if(input == 0){
-      drawer.onPageChanged(0);
-      drawer.resetController(input);
-    }
   }
 
-  item(index,name,width,boController,drawer) {
+  item(index,name,width,boController) {
     return Material(
       color: Colors.white.withOpacity(.5),
       borderRadius: BorderRadius.all(Radius.circular(9)),
@@ -113,13 +105,13 @@ class Bottom extends StatelessWidget {
                 size: index == boController.page.value ?  30 : 25))
         ),
         onTap: (){
-          navigateToPage(index,boController,drawer);
+          navigateToPage(index,boController);
         },
       ),
     );
   }
 
-  animateTo(int page,OpenController drawer) {
+  animateTo(int page,BottomController drawer) {
     drawer.onPageChanged(page);
     drawer.resetController(page);
   }
